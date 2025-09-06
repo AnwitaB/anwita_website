@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anwita Bhowmik - CV Website</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #1a1a1a, #2b2b2b, #3a3a3a);
+      color: #f5f5f5;
+      display: flex;
+      height: 100vh;
+    }
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      flex-direction: row;
+    }
+    .tabs {
+      display: flex;
+      flex-direction: column;
+      background: #1f1f1f;
+      width: 260px;
+      min-height: 100vh;
+      overflow-y: auto;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.4);
+      border-radius: 0 16px 16px 0;
+      padding-top: 20px;
+    }
+    .tabs button {
+      padding: 14px 18px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      text-align: left;
+      transition: all 0.3s;
+      color: #ccc;
+      border-radius: 0 16px 16px 0;
+    }
+    .tabs button:hover {
+      background: #333;
+      padding-left: 24px;
+      color: #fff;
+    }
+    .tabs button.active {
+      background: #555;
+      color: white;
+      font-weight: bold;
+    }
+    .content {
+      flex: 1;
+      padding: 30px;
+      background: #2a2a2a;
+      border-radius: 16px;
+      margin: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+      animation: fadeIn 0.6s ease;
+      overflow-y: auto;
+    }
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.6s ease;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    h2 {
+      margin-top: 0;
+      color: #eee;
+      border-bottom: 1px solid #444;
+      padding-bottom: 8px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .about-section {
+      background: #1e1e1e;
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+      line-height: 1.6;
+      font-size: 0.95em;
+      color: #ddd;
+    }
+    .about-section h3 {
+      margin-top: 0;
+      color: #fff;
+      font-size: 1.2em;
+    }
+    .about-highlight {
+      color: #76c7c0;
+      font-weight: bold;
+    }
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      border: 3px solid #444;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- MOBILE FRIENDLY STYLES --- */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        height: auto;
+      }
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+      .tabs {
+        flex-direction: row;
+        width: 100%;
+        min-height: auto;
+        border-radius: 0;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        overflow-x: auto;
+        padding: 10px 0;
+      }
+      .tabs img.profile-pic {
+        width: 60px;
+        height: 60px;
+        margin: 0 10px;
+      }
+      .tabs button {
+        flex: none;
+        padding: 10px 14px;
+        font-size: 14px;
+        border-radius: 8px;
+        text-align: center;
+      }
+      .content {
+        margin: 10px;
+        padding: 16px;
+        border-radius: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="tabs">
+      <img src="chobi.png" alt="Profile Photo" class="profile-pic" />
+      <button class="tab-link active" onclick="openTab(event, 'about')">About</button>
+      <button class="tab-link" onclick="openTab(event, 'research')">Research</button>
+      <button class="tab-link" onclick="openTab(event, 'education')">Education</button>
+      <button class="tab-link" onclick="openTab(event, 'experience')">Work</button>
+      <button class="tab-link" onclick="openTab(event, 'publications')">Publications</button>
+      <button class="tab-link" onclick="openTab(event, 'conferences')">Conferences</button>
+      <button class="tab-link" onclick="openTab(event, 'teaching')">Teaching</button>
+      <button class="tab-link" onclick="openTab(event, 'skills')">Skills</button>
+      <button class="tab-link" onclick="openTab(event, 'awards')">Awards</button>
+      <button class="tab-link" onclick="openTab(event, 'contact')">Contact</button>
+    </div>
+    <div class="content">
+      <div id="about" class="tab-content active">
+        <h2>About</h2>
+        <div class="about-section">
+          <h3>Hello, I’m <span class="about-highlight">Anwita Bhowmik</span></h3>
+          <p>I am a <span class="about-highlight">postdoctoral researcher</span> in mathematics, currently affiliated with Hebei Normal University in China. Currently, I am studying divisible design graphs, which are generalizations of strongly regular graphs. My work is driven by curiosity and passion for <span class="about-highlight">combinatorics and graph theory</span>, with a particular focus on some classes of strongly regular graphs, for instance the Paley and Peisert graphs over finite fields, as well as their generalizations.</p>
+          <p>I completed my <span class="about-highlight">Ph.D. in Mathematics</span> at the Indian Institute of Technology Guwahati in 2023, under the guidance of Prof. Rupam Barman. My doctoral thesis explored the rich structures of Paley and Peisert graphs, contributing to the broader understanding of algebraic graph theory.</p>
+          <p>Beyond research, I enjoy listening to music, singing and playing badminton.</p>
+        </div>
+      </div>
+
+      <div id="research" class="tab-content">
+        <h2>Research Interests</h2>
+        <p>Algebraic Graph Theory, Algebraic Combinatorics and Number Theory. In particular, strongly regular graphs, divisible design graphs, Paley graphs, the theory of Finite Fields, character sums on finite abelian groups.</p>
+      </div>
+
+      <div id="education" class="tab-content">
+        <h2>Education</h2>
+        <p><strong>Indian Institute of Technology Guwahati (2018-2023)</strong><br>PhD in Mathematics.<br>Advisor: Prof. Rupam Barman.<br>Thesis title: Paley and Peisert graphs over finite fields, and their generalizations.<br>Defended thesis on December 23, 2023.</p>
+        <p><strong>Jadavpur University (2012-2017)</strong><br>M. Sc. in Mathematics, 2015-2017. Scored 91%, 1st class.<br>B. Sc. (Honours) in Mathematics (with Computer Science and Statistics as subsidiary subjects), 2012-2015. Scored 89.42%, 1st class with distinction.</p>
+        <p><strong>Calcutta Public School</strong><br>Cleared 12th (I.S.C.) in Science stream, 2012. Scored 95.75%.<br>Cleared 10th (I.C.S.E.), 2010. Scored 95.2%.</p>
+      </div>
+
+      <div id="experience" class="tab-content">
+        <h2>Work Experience</h2>
+        <p><strong>School of Mathematical Sciences, Hebei Normal University</strong><br>Postdoctoral researcher.<br>May 10, 2024 - Present.<br>Formal host: Prof. Liping Yuan.<br>Mentor: Prof. Sergey Goryainov.</p>
+      </div>
+
+      <div id="publications" class="tab-content">
+        <h2>Research Work - Publications</h2>
+        <ul>
+          <li>Divisible design graphs with selfloops (with B. De Bruyn and S. Goryainov), arXiv:2505.03276</li>
+          <li>Divisible design graphs from symplectic graphs over rings with precisely three ideals (with S. Goryainov), arXiv:2412.04962</li>
+          <li>Cliques of orders three and four in the Paley-type graphs (with R. Barman), Graphs and Combinatorics 40 (2024), Paper No. 80</li>
+          <li>Number of complete subgraphs of Peisert graphs and finite field hypergeometric functions (with R. Barman), Research in Number Theory 10 (2024), p. 26</li>
+          <li>Hypergeometric functions for Dirichlet characters and Peisert-like graphs (with R. Barman), La Matematica 2 (2023), 992-1021</li>
+          <li>On a Paley-type graph on Zn (with R. Barman), Graphs and Combinatorics 38 (2022), Paper No. 41</li>
+        </ul>
+      </div>
+
+      <div id="conferences" class="tab-content">
+        <h2>Conferences and Workshops Attended</h2>
+        <ul>
+          <li>8th Workshop on Design Theory, Hadamard Matrices and Applications (Hadamard 2025), May 26-30, 2025, Instituto de Matemáticas, Universidad de Sevilla (IMUS), Spain</li>
+          <li>The 28th USTC-AHU-AHJZU Joint Seminar on Algebraic Combinatorics, Nov 2, 2024, University of Science and Technology of China (USTC), Hefei, China</li>
+          <li>The International Conference and PhD-Master Summer School “Graphs and Groups, Complexity and Convexity” (G2C2), Aug 11-25, 2024, Hebei Normal University, Shijiazhuang, China</li>
+          <li>Workshop on Analytic and Combinatorial Number Theory @HRI, Mar 20-30, 2024, Harish Chandra Research Institute, Prayagraj</li>
+          <li>Online Conference on Combinatorial Number Theory And Connected Topics (CONTACT-III), Mar 16-17, 2024, online</li>
+          <li>38th Annual Conference of Ramanujan Mathematical Society, Dec 22-24, 2023, IIT Guwahati</li>
+          <li>Online Lecture Series by Prof. Ram Murty on p-adic number theory, Aug 28-Sep 1, 2023, Dept. of Mathematics, University of Mumbai</li>
+          <li>34th International Conference on Formal Power Series & Algebraic Combinatorics (FPSAC), Jul 18-22, 2022, IISc Bangalore</li>
+          <li>Annual Foundation School (AFS) III Workshop, Jun 20-Jul 16, 2022, IIT Guwahati</li>
+          <li>6th Workshop on Algebraic Graph Theory and its Applications, Mar 21-25, 2022, online</li>
+          <li>International Webinar on Recent Developments in Number Theory, Oct 1-4, 2021, KIIT Bhubaneswar</li>
+          <li>Online Workshop on Algebraic Number Theory, Aug 31-Sep 5, 2020, Assam University, Silchar</li>
+          <li>Online Lecture Series, Jun 2020, University of Science & Technology, Meghalaya</li>
+          <li>Advanced Instructional Schools (AIS) Modular forms Workshop, May 13-Jun 1, 2019, IIT Guwahati</li>
+        </ul>
+      </div>
+
+      <div id="teaching" class="tab-content">
+        <h2>Teaching Experience</h2>
+        <p>Tutor for B.Tech. and M.Sc. Mathematics courses at IIT Guwahati (2019-2022). Courses include Calculus, Linear Algebra, Ordinary Differential Equations, and Modern Algebra.</p>
+      </div>
+
+      <div id="skills" class="tab-content">
+        <h2>Technical Skills</h2>
+        <p>LATEX | C/C++ | Python | SageMath | MATLAB | Mathematica | Java</p>
+      </div>
+
+      <div id="awards" class="tab-content">
+        <h2>Achievements / Awards</h2>
+        <ul>
+          <li>Institute PhD fellowship in IIT Guwahati (2018-2023)</li>
+          <li>Qualified GATE (2018)</li>
+          <li>Qualified NET Lectureship (2017)</li>
+          <li>Qualified SET (West Bengal) for Assistant Professor (2017)</li>
+          <li>INSPIRE Scholarship award for top 1% performance in Class XII (2012)</li>
+        </ul>
+      </div>
+
+      <div id="contact" class="tab-content">
+        <h2>Contact Information</h2>
+        <p><strong>Date of Birth:</strong> 28.06.1994</p>
+        <p><strong>Email:</strong> bhowmikanwita@gmail.com</p>
+        <p><strong>Phone:</strong> +91 8961208850; +86 16631124881</p>
+        <p><strong>Address:</strong> School of Mathematical Sciences, Hebei Normal University, 20 S 2nd Ring Rd E, Yuhua District, Shijiazhuang, China</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      tablinks = document.getElementsByClassName("tab-link");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+</body>
+</html>
